@@ -1,3 +1,6 @@
+.project
+.idea
+
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
@@ -5,6 +8,8 @@ pnpm-lock.yml
 
 node_modules
 
+/.cache
+/build
 /server/index.js
 /server/index.js.map
 /public/build
