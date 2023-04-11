@@ -1,4 +1,4 @@
-import type { LinksFunction, LoaderFunction, LoaderArgs } from '@remix-run/node';
+import type { LinksFunction, LoaderArgs } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import {
   Links,
@@ -10,22 +10,16 @@ import {
 } from '@remix-run/react';
 
 import tailwindStylesheetUrl from '~/styles/tailwind.css';
+import { getUser } from '~/session.server';
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: tailwindStylesheetUrl },
-  { rel: 'icon', href: '/_static/favicon.ico' }
+  // NOTE: Architect deploys the public directory to /_static/
+  { rel: 'icon', href: '/_static/favicon.ico' },
 ];
 
-export const meta: MetaFunction = () => ({
-  'apple-mobile-web-app-capable': 'yes',
-  charset: 'utf-8',
-  title: '8 Bit',
-  viewport: 'user-scalable=no, width=device-width, initial-scale=1.0'
-});
-
-export const loader: LoaderFunction = async ({ request }: LoaderArgs): Promise<object> => {
-  return json<LoaderData>({
-  });
+export const loader = async ({ request }: LoaderArgs) => {
+  return json({ user: await getUser(request) });
 };
 
 export default function App() {
