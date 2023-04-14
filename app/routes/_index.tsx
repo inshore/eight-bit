@@ -52,7 +52,7 @@ export default function Index () {
           </div>
         </div>
         <div className="mx-auto max-w-7xl py-2 px-4 sm:px-6 lg:px-8">
-          <div className="mt-6 flex flex-wrap justify-center gap-8">
+          <div className="mt-6 flex flex-wrap justify-center gap-6">
             {[
               {
                 src: 'https://user-images.githubusercontent.com/1500684/157991167-651c8fc5-2f72-4afa-94d8-2520ecbc5ebc.svg',
