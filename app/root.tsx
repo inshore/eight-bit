@@ -1,5 +1,5 @@
-import type { LinksFunction, LoaderArgs } from '@remix-run/node';
-import { json } from '@remix-run/node';
+import type { LinksFunction, LoaderArgs } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -7,19 +7,17 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-} from '@remix-run/react';
+} from "@remix-run/react";
 
-import tailwindStylesheetUrl from '~/styles/tailwind.css';
-import { getUser } from '~/session.server';
+import tailwindStylesheetUrl from "~/styles/tailwind.css";
 
 export const links: LinksFunction = () => [
-  { rel: 'stylesheet', href: tailwindStylesheetUrl },
-  // NOTE: Architect deploys the public directory to /_static/
-  { rel: 'icon', href: '/_static/favicon.ico' },
+  { rel: "stylesheet", href: tailwindStylesheetUrl },
+  { rel: "icon", href: "/_static/favicon.ico" },
 ];
 
 export const loader = async ({ request }: LoaderArgs) => {
-  return json({ user: await getUser(request) });
+  return ({});
 };
 
 export default function App() {
