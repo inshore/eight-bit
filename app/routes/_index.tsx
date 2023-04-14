@@ -65,9 +65,9 @@ export default function Index () {
                 href: 'https://arc.codes'
               },
               {
-                src: 'https://user-images.githubusercontent.com/1500684/157772990-3968ff7c-b551-4c55-a25c-046a32709a8e.svg',
+                src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/512px-ChatGPT_logo.svg.png?20230318122128',
                 alt: 'ChatGPT',
-                href: 'https://chat.openai.com'
+                href: 'https://platform.openai.com'
               },
               {
                 src: 'https://user-images.githubusercontent.com/1500684/157764454-48ac8c71-a2a9-4b5e-b19c-edef8b8953d6.svg',
