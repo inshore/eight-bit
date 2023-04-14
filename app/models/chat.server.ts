@@ -1,7 +1,7 @@
 import { Configuration, OpenAIApi } from 'openai';
 
 export async function getResponse (prompt: string): Promise<string> {
-  console.log(prompt)
+// console.log(prompt);
   try {
     const configuration = new Configuration({
       apiKey: process.env.OPEN_AI_API_SECRET_KEY

@@ -1,26 +1,25 @@
-import type { LinksFunction, LoaderArgs } from "@remix-run/node";
-import { json } from "@remix-run/node";
+import type { LinksFunction, LoaderArgs } from '@remix-run/node';
 import {
   Links,
   LiveReload,
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration,
-} from "@remix-run/react";
+  ScrollRestoration
+} from '@remix-run/react';
 
-import tailwindStylesheetUrl from "~/styles/tailwind.css";
+import tailwindStylesheetUrl from '~/styles/tailwind.css';
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: tailwindStylesheetUrl },
-  { rel: "icon", href: "/_static/favicon.ico" },
+  { rel: 'stylesheet', href: tailwindStylesheetUrl },
+  { rel: 'icon', href: '/_static/favicon.ico' }
 ];
 
 export const loader = async ({ request }: LoaderArgs) => {
   return ({});
 };
 
-export default function App() {
+export default function App () {
   return (
     <html lang="en" className="h-full">
       <head>
