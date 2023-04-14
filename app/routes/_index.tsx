@@ -21,7 +21,7 @@ export default function Index () {
             <div className="absolute inset-0">
             <img
                 className="h-full w-full object-cover"
-                src=""
+                src="https://raw.githubusercontent.com/inshore/eight-bit/main/public/eight-bit.jpg"
                 alt="8Bit band!"
               />
               <div className="absolute inset-0 bg-[color:rgba(255,56,56,0.5)] mix-blend-multiply" />
