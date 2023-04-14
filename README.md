@@ -21,16 +21,17 @@ Not a fan of bits of the stack? Fork it, change it, and use `npx create-remix --
 
 ## Development
 
-- This step only applies if you've opted out of having the CLI install dependencies for you:
+- Init Arc so that you can then run dev:
 
   ```sh
-  npx remix init
+  npx arc  inti
   ```
 
-- Validate the app has been set up properly (optional):
+- Add you https://platform.openai.com api key to the .en after copying the example.
 
   ```sh
-  npm run validate
+  cp env.exampl .env
+  vi .env
   ```
 
 - Start dev server:
