@@ -5,13 +5,14 @@ TBC
 Learn more about [Remix Stacks](https://remix.run/stacks).
 
 ```
-npx create-remix@latest --template danielmullin/eight-bit
+npx create-remix@latest --template inshore/eight-bit
 ```
 
 ## What's in the stack
 
 - [AWS deployment](https://aws.com) with [Architect](https://arc.codes/)
 - Styling with [Tailwind](https://tailwindcss.com/)
+- ChtGPT with [OpneAI] (https://platform.openai.com)
 - End-to-end testing with [Cypress](https://cypress.io)
 - Linting with [ESLint](https://eslint.org)
 - Static Types with [TypeScript](https://typescriptlang.org)
