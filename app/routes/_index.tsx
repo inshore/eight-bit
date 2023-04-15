@@ -1,8 +1,6 @@
 import type { LoaderArgs, V2_MetaFunction } from '@remix-run/node';
-import { useLoaderData } from '@remix-run/react';
+import { Link, useLoaderData } from '@remix-run/react';
 import { getResponse } from '~/models/chat.server';
-
-export const meta: V2_MetaFunction = () => [{ title: '8Bit' }];
 
 export const loader = async ({ request }: LoaderArgs) => {
   const date = new Date();
@@ -11,7 +9,9 @@ export const loader = async ({ request }: LoaderArgs) => {
   });
 };
 
-export default function Index () {
+export const meta: V2_MetaFunction = () => [{ title: '8Bit' }];
+
+export default function Index (): React.ReactElement {
   const { greeting } = useLoaderData();
   return (
     <main className="relative min-h-screen bg-white sm:flex sm:items-center sm:justify-center">
@@ -39,8 +39,9 @@ export default function Index () {
                 Check the README.md file for instructions on how to get this
                 project deployed.
               </p>
-              <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center">
-              </div>
+              <p className="mx-auto mt-6 max-w-lg text-center text-xl text-white sm:max-w-3xl">
+                <Link to="prompt">Try the prompt!</Link>
+              </p>
               <a href="https://remix.run">
                 <img
                   src="https://user-images.githubusercontent.com/1500684/158298926-e45dafff-3544-4b69-96d6-d3bcc33fc76a.svg"
