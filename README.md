@@ -1,6 +1,7 @@
 # 8Bit
 
-TBC
+![The Remix 8Bit Stack](https://raw.githubusercontent.com/inshore/eight-bit/main/public/eight-bit-read-me.png)
+
 
 Learn more about [Remix Stacks](https://remix.run/stacks).
 
