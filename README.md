@@ -63,11 +63,12 @@ Prior to your first deployment, you'll need to do a few things:
 
   ```sh
   npx arc env --add --env staging ARC_APP_SECRET $(openssl rand -hex 32)
-  npx arc env --add --env staging SESSION_SECRET $(openssl rand -hex 32)
-  npx arc env --add --env staging OPENAPI-API-KEY $(openssl rand -hex 32)
+  npx arc env --add --env staging PROMPT_MODE "development"
+  npx arc env --add --env production OPEN_AI_API_SECRET_KEY $(openssl rand -hex 32)
+  npx arc env --add --env staging OPENAPI-API-KEY [YOUR API KEY] 
   npx arc env --add --env production ARC_APP_SECRET $(openssl rand -hex 32)
-  npx arc env --add --env production SESSION_SECRET $(openssl rand -hex 32)
-  npx arc env --add --env production OPENAPI-API-KEY $(openssl rand -hex 32)
+  npx arc env --add --env production PROMPT_MODE "live"
+  npx arc env --add --env production OPEN_AI_API_SECRET_KEY [YOUR API KEY] 
   ```
 
   If you don't have openssl installed, you can also use [1password](https://1password.com/password-generator) to generate a random secret, just replace `$(openssl rand -hex 32)` with the generated secret.
