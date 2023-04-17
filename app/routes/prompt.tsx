@@ -1,23 +1,51 @@
 import type { ActionArgs, ActionFunction, V2_MetaFunction } from '@remix-run/node';
-import { Form, useActionData, useLoaderData, useTransition} from '@remix-run/react';
+import { Form, isRouteErrorResponse, useActionData, useRouteError, useTransition } from '@remix-run/react';
 import { json } from '@remix-run/node';
 import { getResponse } from '~/models/chat.server';
 
 export const action: ActionFunction = async ({ request }: ActionArgs) => {
   const body = await request.formData();
-  const prompt = body.get('prompt');
+  const prompt = String(body.get('prompt'));
   const response = await getResponse(prompt);
-  const errors = {}
-  const values = { response }
+  const errors = {};
+  const values = { response };
   return json({ errors, values });
+};
+
+export function ErrorBoundary (): React.ReactElement {
+  const error = useRouteError();
+
+  if (isRouteErrorResponse(error)) {
+    return (
+      <section>
+        <h1>Error</h1>
+        <p> Status: {error.status}</p>
+        <p>{error.data.message}</p>
+      </section>
+    );
+  }
+
+  let errorMessage = 'Unknown error has occured';
+  // @todo global error handler
+  if (error.isAxiosError) {
+    errorMessage = error.response.data.error.message;
+  }
+
+  return (
+    <section>
+      <h1>Error</h1>
+      <p> Status: An error has occurred</p>
+      <p> {errorMessage}</p>
+    </section>
+  );
 }
 
 export const meta: V2_MetaFunction = () => [{ title: '8Bit' }];
 
-export default function Index (): React.ReactElement {
+export default function Prompt (): React.ReactElement {
   const actionData = useActionData<typeof action>();
   const transition = useTransition();
-console.log(actionData)
+
   return (
     <main className="relative min-h-screen bg-white sm:flex sm:items-center sm:justify-center">
       <div className="relative sm:pb-16 sm:pt-8">
