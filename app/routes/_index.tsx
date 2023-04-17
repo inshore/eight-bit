@@ -1,11 +1,39 @@
-import type { LoaderArgs, V2_MetaFunction } from '@remix-run/node';
-import { Link, useLoaderData } from '@remix-run/react';
+import type { V2_MetaFunction } from '@remix-run/node';
+import { isRouteErrorResponse, Link, useLoaderData, useRouteError } from '@remix-run/react';
 import { getResponse } from '~/models/chat.server';
 
-export const loader = async ({ request }: LoaderArgs) => {
+export function ErrorBoundary (): React.ReactElement {
+  const error = useRouteError();
+
+  if (isRouteErrorResponse(error)) {
+    return (
+      <section>
+        <h1>Error</h1>
+        <p> Status: {error.status}</p>
+        <p>{error.data.message}</p>
+      </section>
+    );
+  }
+
+  let errorMessage = 'Unknown error has occured';
+  // @todo global error handler
+  if (error.isAxiosError) {
+    errorMessage = error.response.data.error.message;
+  }
+
+  return (
+    <section>
+      <h1>Error</h1>
+      <p> Status: An error has occurred</p>
+      <p> {errorMessage}</p> 
+    </section>
+  );
+}
+
+export const loader = async (): Promise<object> => {
   const date = new Date();
   return ({
-    greeting: await getResponse('Create a fun "hello world" message incorporating one significant historical event or a birth or a death that happened on the date of ' + date.toLocaleString('default', { day: '2-digit', month: 'long'}) + ' with a response maximum of 40 tokens do not use hash-tags.')
+    greeting: await getResponse('Create a fun "hello world" message incorporating one significant historical event or a birth or a death that happened on the date of ' + date.toLocaleString('default', { day: '2-digit', month: 'long' }) + ' with a response maximum of 40 tokens do not use hash-tags.')
   });
 };
 
