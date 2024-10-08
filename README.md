@@ -13,7 +13,7 @@ npx create-remix@latest --template inshore/eight-bit
 
 - [AWS deployment](https://aws.com) with [Architect](https://arc.codes/)
 - Styling with [Tailwind](https://tailwindcss.com/)
-- ChtGPT with [OpneAI] (https://platform.openai.com)
+- ChtGPT with [OpenAI] (https://platform.openai.com)
 - End-to-end testing with [Cypress](https://cypress.io)
 - Linting with [ESLint](https://eslint.org)
 - Static Types with [TypeScript](https://typescriptlang.org)
